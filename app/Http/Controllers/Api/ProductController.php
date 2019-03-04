@@ -28,5 +28,7 @@ class ProductController extends Controller
       $newProduct = new Product;
       $newProduct->fill($validatedData);
       $newProduct->save();
+
+      return response()->json($newProduct);
     }
 }
