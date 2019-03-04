@@ -41,4 +41,19 @@ class ProductController extends Controller
       }
       return response()->json($product);
     }
+
+    public function update(Request $request, $id){
+
+      $data = $request->all();
+
+      $product = Product::find($id);
+
+      if (empty($product)) {
+        return response()->json([
+          'error' => 'id inesistente'
+        ]);
+      }
+      $product->update($data);
+      return response()->json($product);
+    }
 }
