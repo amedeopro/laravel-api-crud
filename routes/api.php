@@ -16,7 +16,7 @@ Route::get('/', function(){
   return 'Ciao siamo nell\'api';
 });
 
-Route::namespace('Api')->group(function(){
+Route::middleware('api.auth')->namespace('Api')->group(function(){
 
   Route::get('/products','ProductController@index');
   Route::post('/products','ProductController@create');
