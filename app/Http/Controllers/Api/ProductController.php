@@ -56,4 +56,19 @@ class ProductController extends Controller
       $product->update($data);
       return response()->json($product);
     }
+
+    public function destroy($id){
+
+      $product = Product::find($id);
+
+      if (empty($product)) {
+        return response()->json([
+          'error' => 'id inesistente'
+        ]);
+      }
+
+      $product->delete();
+
+      return response()->json([]);
+    }
 }

@@ -20,3 +20,4 @@ Route::get('/products','Api\ProductController@index');
 Route::post('/products','Api\ProductController@create');
 Route::get('/products/{id}','Api\ProductController@show');
 Route::post('/products/{id}','Api\ProductController@update');
+Route::post('/products/{id}/delete','Api\ProductController@destroy');
