@@ -31,4 +31,14 @@ class ProductController extends Controller
 
       return response()->json($newProduct);
     }
+
+    public function show($id){
+      $product = Product::find($id);
+      if (empty($product)) {
+        return response()->json([
+          'error' => 'id inesistente'
+        ]);
+      }
+      return response()->json($product);
+    }
 }
