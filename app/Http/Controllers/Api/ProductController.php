@@ -15,4 +15,18 @@ class ProductController extends Controller
 
 
     }
+
+    public function create(Request $request){
+      $data = $request->all();
+
+      $validatedData = $request->validate([
+        'name' => 'required',
+        'serial_number' => 'required',
+        'description' => 'required'
+      ]);
+
+      $newProduct = new Product;
+      $newProduct->fill($validatedData);
+      $newProduct->save();
+    }
 }
